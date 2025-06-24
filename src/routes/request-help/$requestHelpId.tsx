@@ -1,9 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useParams } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/request-help/$requestHelpId")({
-  component: RouteComponent,
+  component: RequestHelpDetailComponent,
 });
 
-function RouteComponent() {
-  return <div>Hello "/request-help/$requestHelpId"!</div>;
+function RequestHelpDetailComponent() {
+  const { requestHelpId } = useParams({ from: "/request-help/$requestHelpId" });
+
+  return (
+    <div>
+      <h1>Request Help Details</h1>
+      <p>Viewing request: {requestHelpId}</p>
+    </div>
+  );
 }

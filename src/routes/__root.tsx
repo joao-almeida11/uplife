@@ -9,13 +9,13 @@ export const Route = createRootRoute({
           Home
         </Link>{" "}
         <Link to="/request-help" className="[&.active]:font-bold">
-          request-help
+          Request Help
         </Link>
         <Link to="/offer-help" className="[&.active]:font-bold">
-          offer-help
+          Offer Help
         </Link>
         <Link to="/u" className="[&.active]:font-bold">
-          u
+          Profile
         </Link>
       </div>
       <hr />
