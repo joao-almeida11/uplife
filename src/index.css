@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  --color-uplife-primary: #0ea5e9;
+  --color-neutral-background: #fafafa;
+}
