@@ -38,7 +38,7 @@ export const Button = ({
     <button
       type="button"
       className={[
-        "inline-block cursor-pointer border-0 font-bold text-base bg-sky-500 font-sans text-zinc-900 rounded-lg",
+        "inline-block cursor-pointer border-0 font-bold leading-none bg-sky-500 font-sans text-zinc-900 rounded-lg",
         `storybook-button--${size}`,
         mode,
         currentSize,
