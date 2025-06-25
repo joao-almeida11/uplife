@@ -8,10 +8,14 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-a11y",
     "@storybook/addon-vitest",
+    "@storybook/addon-links",
   ],
   framework: {
     name: "@storybook/react-vite",
     options: {},
+  },
+  core: {
+    disableTelemetry: true,
   },
 };
 export default config;

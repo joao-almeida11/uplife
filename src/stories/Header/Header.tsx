@@ -1,7 +1,4 @@
-import React from "react";
-
-import { Button } from "./Button";
-import "./header.css";
+import { Button } from "../Button/Button";
 
 type User = {
   name: string;
@@ -21,13 +18,14 @@ export const Header = ({
   onCreateAccount,
 }: HeaderProps) => (
   <header>
-    <div className="storybook-header">
+    <div className="flex justify-between items-center border-b py-4 px-5">
       <div>
         <svg
           width="32"
           height="32"
           viewBox="0 0 32 32"
           xmlns="http://www.w3.org/2000/svg"
+          className="inline-block align-top"
         >
           <g fill="none" fillRule="evenodd">
             <path
@@ -44,12 +42,15 @@ export const Header = ({
             />
           </g>
         </svg>
-        <h1>Acme</h1>
+        <h1 className="inline-block align-top my-1 ml-3 font-bold text-xl leading-none">
+          Acme
+        </h1>
       </div>
-      <div>
+      <div className="flex flex-row gap-4 items-center">
         {user ? (
           <>
             <span className="welcome">
+              {/* TODO AVATAR */}
               Welcome, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} label="Log out" />
