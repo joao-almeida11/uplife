@@ -1,39 +1,12 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
+// eslint.config.js  (project root)
+import appConfig from "./app/eslint.config.js";
+import serverConfig from "./server/eslint.config.js";
 
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
-import tanstackQuery from "@tanstack/eslint-plugin-query";
+// helper → prepend "app/" or "server/" in front of every files-glob
+const scoped = (configArray, prefix) =>
+  configArray.map((c) => ({
+    ...c,
+    files: (c.files ?? ["**/*"]).map((glob) => `${prefix}/${glob}`),
+  }));
 
-export default tseslint.config(
-  { ignores: ["dist"] },
-  {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tanstackQuery.configs["flat/recommended"],
-    ],
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-      "@tanstack/query": tanstackQuery,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-      "@tanstack/query/exhaustive-deps": "error",
-    },
-  },
-  storybook.configs["flat/recommended"],
-);
+export default [...scoped(appConfig, "app"), ...scoped(serverConfig, "server")];
