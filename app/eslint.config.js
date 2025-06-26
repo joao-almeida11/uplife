@@ -1,5 +1,7 @@
 import js from "@eslint/js";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
+import vitest from "@vitest/eslint-plugin";
+import perfectionist from "eslint-plugin-perfectionist";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
@@ -39,6 +41,16 @@ export default tseslint.config(
     files: [".storybook/main.ts"],
     rules: {
       "storybook/no-uninstalled-addons": "off",
+    },
+  },
+  perfectionist.configs["recommended-natural"],
+  {
+    files: ["**/*.test.ts", "**/*.spec.ts"],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.recommended.rules,
     },
   },
 );
