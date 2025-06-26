@@ -21,10 +21,12 @@
     "url": "git+https://github.com/joao-almeida11/uplife-remake.git"
   },
   "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.jsx": "eslint --fix",
-    "*.ts": "eslint --fix",
-    "*.tsx": "eslint --fix",
+    "app/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --config ./app/eslint.config.js"
+    ],
+    "server/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --config ./server/eslint.config.js"
+    ],
     "*.{js,jsx,ts,tsx,css,scss,json}": "prettier --write"
   },
   "husky": {
