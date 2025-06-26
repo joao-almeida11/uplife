@@ -15,7 +15,7 @@
     "lint-staged": "lint-staged",
     "prepare": "husky",
     "commit": "cz-git",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix '*.{js,jsx,ts,tsx}'"
   },
   "repository": {
     "type": "git",

@@ -5,5 +5,11 @@ export const Route = createFileRoute("/request-help/")({
 });
 
 function RouteComponent() {
-  return <div>Hello "/request-help/"!</div>;
+  return (
+    <div>
+      <h1>Request Help</h1>
+      <p>Submit a request for assistance from the community.</p>
+      {/* TODO: Add request help form */}
+    </div>
+  );
 }

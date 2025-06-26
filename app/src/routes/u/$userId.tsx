@@ -4,6 +4,9 @@ export const Route = createFileRoute("/u/$userId")({
   component: RouteComponent,
 });
 
+import { useParams } from "@tanstack/react-router";
+
 function RouteComponent() {
-  return <div>Hello "/u/$userId"!</div>;
+  const { userId } = useParams({ from: "/u/$userId" });
+  return <div>User ID: {userId}</div>;
 }

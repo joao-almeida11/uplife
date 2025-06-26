@@ -3,6 +3,11 @@ dotenv.config();
 
 import app from "./server.js";
 
-app.listen(3001, () => {
-  console.log("hello on http://localhost:3001");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+}).on('error', (err) => {
+  console.error('Failed to start server:', err);
+  process.exit(1);
 });

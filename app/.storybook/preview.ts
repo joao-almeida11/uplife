@@ -5,12 +5,10 @@ import "../src/index.css";
 const preview: Preview = {
   parameters: {
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: "todo",
+      config: {}, // axe-core config
+      disable: false, // set to true to skip entirely
+      // When you need CI gating, use the '@storybook/test-runner'
     },
-
     controls: {
       matchers: {
         color: /(background|color)$/i,

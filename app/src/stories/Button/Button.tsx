@@ -1,47 +1,44 @@
+import clsx from "clsx";
+
+const sizeClasses = {
+  large: "py-4 px-6",
+  medium: "py-3 px-5",
+  small: "py-2 px-4",
+} as const;
+
+const variantClasses = {
+  danger: "bg-red-600 text-white",
+  primary: "bg-uplife-primary text-zinc-900",
+  secondary: "bg-transparent text-uplife-primary border border-uplife-primary",
+} as const;
+
+
 export interface ButtonProps {
   /** Button contents */
   label: string;
-  /** Optional click handler */
   onClick?: () => void;
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  // backgroundColor?: string;
-  /** How large should the button be? */
-  size?: "large" | "medium" | "small";
+  size?: ButtonSize;
+  variant?: ButtonVariant;
 }
 
-/** Primary UI component for user interaction */
+type ButtonSize = keyof typeof sizeClasses;
+type ButtonVariant = keyof typeof variantClasses;
+
 export const Button = ({
-  // backgroundColor,
   label,
-  primary = true,
   size = "medium",
+  variant = 'primary',
   ...props
 }: ButtonProps) => {
-  const mode = primary ? "bg-uplife-primary text-zinc-900" : "";
-
-  let currentSize;
-  switch (size) {
-    case "large":
-      currentSize = "py-4 px-6";
-      break;
-    case "medium":
-      currentSize = "py-3 px-5";
-      break;
-    case "small":
-      currentSize = "py-2 px-4";
-      break;
-  }
 
   return (
     <button
-      className={[
-        "inline-block cursor-pointer border-0 font-bold leading-none bg-sky-500 font-sans text-zinc-900 rounded-lg",
+      className={clsx(
+        "inline-block cursor-pointer border-0 font-bold leading-none font-sans rounded-lg",
         `storybook-button--${size}`,
-        mode,
-        currentSize,
-      ].join(" ")}
+        variantClasses[variant],
+        sizeClasses[size],
+      )}
       type="button"
       {...props}
     >
