@@ -1,12 +1,11 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
-
 import js from "@eslint/js";
-import globals from "globals";
+import tanstackQuery from "@tanstack/eslint-plugin-query";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+import globals from "globals";
 import tseslint from "typescript-eslint";
-import tanstackQuery from "@tanstack/eslint-plugin-query";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -22,18 +21,24 @@ export default tseslint.config(
       globals: globals.browser,
     },
     plugins: {
+      "@tanstack/query": tanstackQuery,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      "@tanstack/query": tanstackQuery,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      "@tanstack/query/exhaustive-deps": "error",
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
       ],
-      "@tanstack/query/exhaustive-deps": "error",
     },
   },
   storybook.configs["flat/recommended"],
+  {
+    files: [".storybook/main.ts"],
+    rules: {
+      "storybook/no-uninstalled-addons": "off",
+    },
+  },
 );

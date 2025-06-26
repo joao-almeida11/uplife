@@ -5,16 +5,16 @@ export const Route = createRootRoute({
   component: () => (
     <>
       <div className="p-2 flex gap-2">
-        <Link to="/" className="[&.active]:font-bold">
+        <Link className="[&.active]:font-bold" to="/">
           Home
         </Link>{" "}
-        <Link to="/request-help" className="[&.active]:font-bold">
+        <Link className="[&.active]:font-bold" to="/request-help">
           Request Help
         </Link>
-        <Link to="/offer-help" className="[&.active]:font-bold">
+        <Link className="[&.active]:font-bold" to="/offer-help">
           Offer Help
         </Link>
-        <Link to="/u" className="[&.active]:font-bold">
+        <Link className="[&.active]:font-bold" to="/u">
           Profile
         </Link>
       </div>

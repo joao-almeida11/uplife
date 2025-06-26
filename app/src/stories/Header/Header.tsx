@@ -1,31 +1,31 @@
 import { Button } from "../Button/Button";
 
+export interface HeaderProps {
+  onCreateAccount?: () => void;
+  onLogin?: () => void;
+  onLogout?: () => void;
+  user?: User;
+}
+
 type User = {
   name: string;
 };
 
-export interface HeaderProps {
-  user?: User;
-  onLogin?: () => void;
-  onLogout?: () => void;
-  onCreateAccount?: () => void;
-}
-
 export const Header = ({
-  user,
+  onCreateAccount,
   onLogin,
   onLogout,
-  onCreateAccount,
+  user,
 }: HeaderProps) => (
   <header>
     <div className="flex justify-between items-center border-b py-4 px-5">
       <div>
         <svg
-          width="32"
+          className="inline-block align-top"
           height="32"
           viewBox="0 0 32 32"
+          width="32"
           xmlns="http://www.w3.org/2000/svg"
-          className="inline-block align-top"
         >
           <g fill="none" fillRule="evenodd">
             <path
@@ -53,16 +53,16 @@ export const Header = ({
               {/* TODO AVATAR */}
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size="small" onClick={onLogout} label="Log out" />
+            <Button label="Log out" onClick={onLogout} size="small" />
           </>
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
+            <Button label="Log in" onClick={onLogin} size="small" />
             <Button
+              label="Sign up"
+              onClick={onCreateAccount}
               primary
               size="small"
-              onClick={onCreateAccount}
-              label="Sign up"
             />
           </>
         )}

@@ -14,18 +14,16 @@
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md,css,sass,scss}\"",
     "lint-staged": "lint-staged",
     "prepare": "husky",
-    "commit": "cz-git"
+    "commit": "cz-git",
+    "lint": "eslint --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joao-almeida11/uplife-remake.git"
   },
   "lint-staged": {
-    "app/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix --config ./app/eslint.config.js"
-    ],
-    "server/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix --config ./server/eslint.config.js"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
     ],
     "*.{js,jsx,ts,tsx,css,scss,json}": "prettier --write"
   },
@@ -43,6 +41,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "commitlint": "^19.8.1",
     "cz-git": "^1.11.2",
+    "eslint": "^9.29.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.1"

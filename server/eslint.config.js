@@ -1,10 +1,10 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 
 import js from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
+import perfectionist from "eslint-plugin-perfectionist";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import perfectionist from "eslint-plugin-perfectionist";
-import vitest from "@vitest/eslint-plugin";
 
 // https://github.com/gabrieldrouin/express-typescript-eslint-prettier-template
 export default tseslint.config(
