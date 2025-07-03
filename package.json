@@ -1,8 +1,7 @@
 {
-  "name": "uplife-remake",
+  "name": "uplife",
   "version": "0.0.0",
   "author": "",
-  "license": "ISC",
   "type": "module",
   "bugs": {
     "url": "https://github.com/joao-almeida11/uplife-remake/issues"
@@ -10,12 +9,14 @@
   "homepage": "https://github.com/joao-almeida11/uplife-remake#readme",
   "description": "Uplife remake app",
   "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "check-format": "prettier --list-different \"./**/*.{ts,tsx,js,jsx,json,md,css,sass,scss}\"",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md,css,sass,scss}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css,sass,scss}\"",
     "lint-staged": "lint-staged",
     "prepare": "husky",
-    "commit": "cz-git",
-    "lint": "eslint --fix '*.{js,jsx,ts,tsx}'"
+    "commit": "cz-git"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "prettier --write"
     ],
-    "*.{js,jsx,ts,tsx,css,scss,json}": "prettier --write"
+    "*.{md,mdx,mjs,yml,yaml,css}": [
+      "prettier --write"
+    ]
   },
   "husky": {
     "hooks": {
@@ -44,6 +47,11 @@
     "eslint": "^9.29.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "prettier": "^3.6.1"
+    "prettier": "^3.6.1",
+    "turbo": "^2.5.4"
+  },
+  "packageManager": "pnpm@10.12.4",
+  "dependencies": {
+    "@commitlint/config-pnpm-scopes": "^19.8.1"
   }
 }

@@ -12,7 +12,6 @@ const variantClasses = {
   secondary: "bg-transparent text-uplife-primary border border-uplife-primary",
 } as const;
 
-
 export interface ButtonProps {
   /** Button contents */
   label: string;
@@ -27,10 +26,9 @@ type ButtonVariant = keyof typeof variantClasses;
 export const Button = ({
   label,
   size = "medium",
-  variant = 'primary',
+  variant = "primary",
   ...props
 }: ButtonProps) => {
-
   return (
     <button
       className={clsx(
