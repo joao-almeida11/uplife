@@ -3,15 +3,18 @@
   "version": "0.0.0",
   "author": "",
   "type": "module",
+  "private": true,
   "bugs": {
-    "url": "https://github.com/joao-almeida11/uplife-remake/issues"
+    "url": "https://github.com/joao-almeida11/uplife/issues"
   },
-  "homepage": "https://github.com/joao-almeida11/uplife-remake#readme",
-  "description": "Uplife remake app",
+  "homepage": "https://github.com/joao-almeida11/uplife#readme",
+  "description": "Give and receive help social platform.",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "preview-storybook": "turbo run preview-storybook",
     "check-format": "prettier --list-different \"./**/*.{ts,tsx,js,jsx,json,md,css,sass,scss}\"",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css,sass,scss}\"",
     "lint-staged": "lint-staged",
