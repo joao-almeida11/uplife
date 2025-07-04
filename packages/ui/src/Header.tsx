@@ -1,4 +1,4 @@
-import { Button } from "../Button/Button";
+import { Button } from "./Button";
 
 export interface HeaderProps {
   onCreateAccount?: () => void;
@@ -61,8 +61,8 @@ export const Header = ({
             <Button
               label="Sign up"
               onClick={onCreateAccount}
-              primary
               size="small"
+              variant="primary"
             />
           </>
         )}

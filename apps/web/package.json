@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "coverage": "vitest run --coverage",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.80.10",

@@ -9,10 +9,9 @@
     "build": "tsc -p tsconfig.build.json",
     "type-check": "tsc --noEmit",
     "lint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "author": "",
-  "license": "ISC",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",

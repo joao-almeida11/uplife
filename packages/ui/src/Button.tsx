@@ -12,8 +12,8 @@ const variantClasses = {
   secondary: "bg-transparent text-uplife-primary border border-uplife-primary",
 } as const;
 
-export interface ButtonProps {
-  /** Button contents */
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   onClick?: () => void;
   size?: ButtonSize;
