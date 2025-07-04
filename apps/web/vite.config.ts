@@ -1,4 +1,3 @@
-import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react-swc";
@@ -29,31 +28,5 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json", "html"],
     },
-    projects: [
-      {
-        extends: true,
-        plugins: [
-          // The plugin will run tests for the stories defined in your Storybook config
-          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
-          storybookTest({
-            configDir: path.join(dirname, ".storybook"),
-          }),
-        ],
-        test: {
-          browser: {
-            enabled: true,
-            headless: true,
-            instances: [
-              {
-                browser: "chromium",
-              },
-            ],
-            provider: "playwright",
-          },
-          name: "storybook",
-          setupFiles: [".storybook/vitest.setup.ts"],
-        },
-      },
-    ],
   },
 });

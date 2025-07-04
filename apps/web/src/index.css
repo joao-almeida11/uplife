@@ -1,10 +1,1 @@
-@import "tailwindcss";
-
-body {
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-@theme {
-  --color-uplife-primary: #0ea5e9;
-  --color-neutral-background: #fafafa;
-}
+@import "@repo/tailwind-config";
